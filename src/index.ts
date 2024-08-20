@@ -1,7 +1,9 @@
 export { default as average } from "@/methods/average";
+export { default as cartesianProduct } from "@/methods/cartesianProduct";
 export { default as median } from "@/methods/median";
 export { default as mode } from "@/methods/mode";
 export { default as pluck } from "@/methods/pluck";
+export { default as rotate } from "@/methods/rotate";
 export { default as shuffle } from "@/methods/shuffle";
 export { default as slidingWindow } from "@/methods/slidingWindow";
 export { default as sum } from "@/methods/sum";
