@@ -1,18 +1,24 @@
 /**
- * Extracts values from a specific property of each object in an array.
+ * Efficiently extracts the values of a specified key from an array of objects.
  *
- * @param {Array<Record<string, any>>} array - The array of objects to pluck values from.
- * @param {string} key - The key of the property to extract.
- * @returns {Array<any>} - An array containing the values of the specified property from each object.
- * @throws {TypeError} - If the input is not an array of objects or if the key is not a string.
+ * @param {Array<Record<string, any>> | null | undefined} array - The array of objects to pluck values from.
+ * @param {keyof T} key - The key whose corresponding values will be extracted.
+ * @returns {Array<any>} - An array of values corresponding to the specified key.
  */
-export function pluck(array: Array<Record<string, any>>, key: string): Array<any> {
-    if (!Array.isArray(array)) {
-        throw new TypeError('The first argument must be an array.');
-    }
-    if (typeof key !== 'string') {
-        throw new TypeError('The key must be a string.');
+export function pluck<T extends Record<string, any>>(array: T[] | null | undefined, key: keyof T): Array<T[keyof T] | undefined> {
+    if (!array) {
+        return [];
     }
 
-    return array.map(obj => (obj && typeof obj === 'object' && key in obj ? obj[key] : null));
+    const length = array.length;
+    const result = new Array<T[keyof T] | undefined>(length);
+    let i = 0;
+
+    while (i < length) {
+        const item = array[i];
+        result[i] = item && typeof item === 'object' ? item[key] : undefined;
+        i++;
+    }
+
+    return result;
 }
