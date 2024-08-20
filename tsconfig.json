@@ -3,6 +3,9 @@
     "target": "ES5",
     "module": "ESNext",
     "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationDir": "./dist",
+    "rootDir": "./src",
     "outDir": "./dist",
     "strict": true,
     "esModuleInterop": true,
@@ -15,6 +18,6 @@
     "removeComments": true,
     "stripInternal": true
   },
-  "include": ["src/**/*"],
+  "include": [ "src/**/*"],
   "exclude": ["node_modules", "dist"]
 }

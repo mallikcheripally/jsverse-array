@@ -4,17 +4,18 @@ const resolve = require('@rollup/plugin-node-resolve');
 const commonjs = require('@rollup/plugin-commonjs');
 const alias = require('@rollup/plugin-alias');
 const path = require('path');
+const packageJson = require('./package.json');
 
 module.exports = {
     input: 'src/index.ts',
     output: [
         {
-            file: 'dist/colore.cjs.js',
+            file: packageJson.main,
             format: 'cjs',
             sourcemap: true,
         },
         {
-            file: 'dist/colore.esm.js',
+            file: packageJson.module,
             format: 'es',
             sourcemap: true,
         },
