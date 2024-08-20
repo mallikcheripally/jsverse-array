@@ -5,7 +5,7 @@
  * @param {keyof T} key - The key whose corresponding values will be extracted.
  * @returns {Array<any>} - An array of values corresponding to the specified key.
  */
-export function pluck<T extends Record<string, any>>(array: T[] | null | undefined, key: keyof T): Array<T[keyof T] | undefined> {
+export default function pluck<T extends Record<string, any>>(array: T[] | null | undefined, key: keyof T): Array<T[keyof T] | undefined> {
     if (!array) {
         return [];
     }

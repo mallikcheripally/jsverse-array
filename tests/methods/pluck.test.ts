@@ -1,4 +1,4 @@
-import { pluck } from '@/index';
+import pluck from '@/methods/pluck';
 
 describe('pluck', () => {
     it('should return an empty array if the input array is null or undefined', () => {
